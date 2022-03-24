@@ -1,0 +1,78 @@
+# Starting compiling UnityEngine.TestRunner.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-37f2c346bfc474632a12393317425fb5
+# Starting compiling UnityEngine.UI.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-d9245531a37f84003a8c7b505d5780e9
+# Starting compiling UnityEditor.TestRunner.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-3f1b4fb8257344d2a93eccf5ce8549c4
+# Starting compiling UnityEditor.UI.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-4c623909eec4945e8895bc0d3583ff59
+# Starting compiling Unity.VSCode.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-466eb4e0d8788486e8a1935d501690ec
+# Starting compiling Unity.VisualStudio.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-fe89dc41d1df341bc864411cf18a2c00
+# Starting compiling Unity.Timeline.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-cd9c290b46c13407da11c8b177b01de3
+# Starting compiling Unity.TextMeshPro.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-4a7f1da3c84294414a006eac483d57a6
+# Starting compiling Unity.CollabProxy.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-e806906d3e9ba4637b5cb69a97e5e048
+# Starting compiling Unity.PlasticSCM.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-67e601e0fb515457980978a142cb007e
+# Starting compiling Unity.Timeline.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-719539c83955344d89502371d0e95a9e
+# Starting compiling Unity.TextMeshPro.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-75ce3de13c259495193fe4f4c0cef9bc
+# Starting compiling Unity.Rider.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-6e061e3484f4f490ba796729dd356419
+# Starting compiling Addressable_Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-0dfd9ad22f9524cf9b3c41a9b18c8d88
+# Starting compiling PhotonRealtime.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-72d901242256741fca19b6aac634dbd8
+# Starting compiling PhotonChat.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-f2ca9ed5b58934b92b0cf15837cf9348
+# Starting compiling UMA_Core.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-5e5c2ede30df64596825d57e560def98
+# Starting compiling PhotonUnityNetworking.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-0ad8235aa73024798ba91c175b911724
+# Starting compiling PhotonVoice.API.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-75b7130f2885843d7a941783f710e5a5
+# Starting compiling PhotonUnityNetworking.Utilities.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-9247300b967db4b8fa240ba1078d7204
+# Starting compiling PunDemos.DemoHubEditor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-ef590e708a5a44ccf9a34362a0b25b8d
+# Starting compiling UMA_Examples.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-e021a183462854b7fbca07bf13f7a16e
+# Starting compiling UMA_Content.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-796d6ad5f5dc743fc9c002c9d40117de
+# Starting compiling UMA_Core_Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-41e0314d564fd492aab1c3f6f050d255
+# Starting compiling PhotonUnityNetworking.Utilities.Culling.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-959c45daa697f4664838f99691699b5d
+# Starting compiling PhotonUnityNetworking.Demos.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-c2d7bd5397a444800877f2aab0dab66a
+# Starting compiling UMA_Examples_Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-018249ba2fe364e0faa564d83386256f
+# Starting compiling PhotonUnityNetworking.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-49e4fd38be9334510baa562b1b4b2b79
+# Starting compiling PhotonVoice.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-6002e8e13272c47bea007fc2c2e67410
+# Starting compiling PunDemos.DemoSlotcarEditor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-3a22aa6abc8214a1394a29b8782ab169
+# Starting compiling PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-ddbed2c91359c409ca9c86841d68245a
+# Starting compiling PhotonVoice.PUN.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-a8bbb71dda33f4973b342d31f88dd658
+# Starting compiling PhotonVoice.Utilities.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-cb7afb074920f4b22b33672d63a98243
+# Starting compiling PhotonVoice.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-ef74222735d394971b874296be586c81
+# Starting compiling PhotonVoice.PUN.Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-ac44f8dde135f4693830a6d1b70d6931
+# Starting compiling Assembly-CSharp-firstpass.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-b17d6e20f39fa4ab4958b51e57e0d68a
+# Starting compiling Assembly-CSharp.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-43b703bfd97b64343b3719e7f81da652
+# Starting compiling Assembly-CSharp-Editor-firstpass.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-6613220c4d1bf469997ecdce98d679f7
+# Starting compiling Assembly-CSharp-Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-3babfc79133994adb8709c35c1e5cc14
