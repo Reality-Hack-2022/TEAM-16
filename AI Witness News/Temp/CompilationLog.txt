@@ -1,2 +1,0 @@
-# Starting compiling Assembly-CSharp-firstpass.dll
-/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-a54c9c0eef7de4c7eab0b2cd82f40514
