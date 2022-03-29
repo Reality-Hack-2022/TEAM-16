@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86f7fb3ea5bac04a857e5f4a0b30077, type: 3}
+  m_Name: F_Long Coat hide Base mesh
+  m_EditorClassIdentifier: 
+  _asset: {fileID: 0}
+  _assetSlotName: F_Base 2.0_Athletic_Torso
+  _serializedFlags:
+  - flags: 000000000000007800ea0f000000000000c0127fc07f803ffeeffff47f00801e1f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ff03ff0300000000000000000000000000000ffeffffff7fccefffffffffffff01000000000000f8ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000183c1e0000c0ef0000000000000000000000000000000000000000000000000000000000000000e0ff0080dff9e2ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0100000000000000000000e001000000000000c01110b0200000
+    Count: 3150

@@ -1,2 +1,4 @@
-# Starting compiling Assembly-CSharp-firstpass.dll
-/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-a54c9c0eef7de4c7eab0b2cd82f40514
+# Starting compiling Assembly-CSharp.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-45929ee5a3e974f8ca804bb40c231a71
+# Starting compiling Assembly-CSharp-Editor.dll
+/Volumes/Samsung_T5/unity/2020.3.12f1/Unity.app/Contents/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-f32d401ca69cd42a186a4d42317e147e
