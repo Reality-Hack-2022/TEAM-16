@@ -232,7 +232,7 @@ public class SpeechManager : MonoBehaviour {
             {
                 // Replace this with your own file. Add it to the project and mark it as "Content" and "Copy if newer".
                 //string audioFilePath = Path.Combine(Application.streamingAssetsPath, "Thisisatest.wav");
-                string audioFilePath = Path.Combine(Application.temporaryCachePath, "recording.wav");
+                string audioFilePath = Path.Combine(Application.persistentDataPath, "recording.wav");
 
                 if (!File.Exists(audioFilePath))
                 {
@@ -607,7 +607,7 @@ public class SpeechManager : MonoBehaviour {
     {
         try
         {
-            string filePath = Path.Combine(Application.temporaryCachePath, filename);
+            string filePath = Path.Combine(Application.persistentDataPath, filename);
             Debug.Log($"Opening new WAV file for recording: {filePath}");
 
             FileStream fs = new FileStream(filePath, FileMode.Create);

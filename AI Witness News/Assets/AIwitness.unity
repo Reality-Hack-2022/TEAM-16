@@ -6624,7 +6624,23 @@ MonoBehaviour:
   alwaysRebuildSkeleton: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
+<<<<<<< HEAD
+    recipes:
+    - _recipeName: F_Long coat Glasses_Recipe
+      _compatibleRaces:
+      - HumanFemale
+      - Athletic Human Female 2 RaceData SSS
+    - _recipeName: F_Long coat Shirt_Recipe
+      _compatibleRaces:
+      - HumanFemale
+      - Athletic Human Female 2 RaceData SSS
+    - _recipeName: FemaleLongHair_Recipe
+      _compatibleRaces:
+      - HumanFemale
+      - HumanFemaleDCS
+=======
     recipes: []
+>>>>>>> 471c5c32c37c0c633a00342adeef461dee5fe2d3
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: 66af5264f1619114db5f72f979ce14bd, type: 2}
     animators: []
@@ -8879,7 +8895,7 @@ MonoBehaviour:
   randomHoldDurationMax: 0.5
   configReady: 1
   warnOnNullRefs: 1
-  inspSalsaLinked: 0
+  inspSalsaLinked: 1
   inspStateFoldoutProcessing: 0
   inspStateFoldoutSettings: 0
   inspStateFoldoutEmotes: 0
@@ -11756,7 +11772,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 2
+=======
   m_RootOrder: 7
+>>>>>>> 471c5c32c37c0c633a00342adeef461dee5fe2d3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!45 &1430881530
 Skybox:

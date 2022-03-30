@@ -343,9 +343,9 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
+  cameraUsageDescription: use for AR
   locationUsageDescription: 
-  microphoneUsageDescription: 
+  microphoneUsageDescription: use mic for speech to text
   switchNMETAOverride: 
   switchNetLibKey: 
   switchSocketMemoryPoolSize: 6144
