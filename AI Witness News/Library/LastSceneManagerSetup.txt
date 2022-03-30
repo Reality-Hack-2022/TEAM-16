@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Twitter/Demo/Scene/TwitterDemo.unity
+- path: Assets/AIwitness2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

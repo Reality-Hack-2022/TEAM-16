@@ -27,9 +27,9 @@ public class TwitterSearchHandler : MonoBehaviour
         Debug.Log("Authorization received");
     }   
     // 1 - The Consumer API Key you received from Twitter
-    private string apiKey = "IOt40jIzDgHjufKnpRbzkQHX5";
+    private string apiKey = "";
     // 2 - The Consumer Secret you received from Twitter
-    private string secret = "nvaQSPqSq0TRYm6l2AHv9rKCtUojXgxmuoJADsggmN1V7ovorA";
+    private string secret = "";
 
     // 3 - The coroutine the will make the authorization request
     private IEnumerator MakeOAuthRequest(string apiKey, string apiSecret)

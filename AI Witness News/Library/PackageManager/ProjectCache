@@ -205,7 +205,6 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
-        - 3.0.13
         compatible:
         - 1.0.2
         - 1.0.6
@@ -235,7 +234,6 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
-        - 3.0.13
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -2931,7 +2929,6 @@ m_PackageAssets:
         - 2.3.0-preview
         - 2.3.1-preview
         - 2.4.0-preview
-        - 3.0.0
         compatible:
         - 0.2.7-preview
         - 0.3.0-preview
@@ -2973,7 +2970,6 @@ m_PackageAssets:
         - 2.3.0-preview
         - 2.3.1-preview
         - 2.4.0-preview
-        - 3.0.0
         verified: 1.0.4
       dependencies:
       - name: com.unity.burst
@@ -3209,7 +3205,6 @@ m_PackageAssets:
         - 1.6.2
         - 1.6.3
         - 1.6.4
-        - 1.6.5
         - 1.7.0-pre.1
         - 1.7.0
         compatible:
@@ -3290,7 +3285,6 @@ m_PackageAssets:
         - 1.6.2
         - 1.6.3
         - 1.6.4
-        - 1.6.5
         - 1.7.0-pre.1
         - 1.7.0
         verified: 1.4.11
