@@ -48,6 +48,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SpeechRecognitionService;
 using Microsoft.Unity;
+using UnityEngine.Events;
 
 public class SpeechManager : MonoBehaviour {
 
@@ -353,9 +354,12 @@ public class SpeechManager : MonoBehaviour {
             yield return null;
         }
         Debug.Log($"Speech Recognition job completed.");
-        DisplayLabel.text = recoServiceClient.finalPhrase;
+        
     }
-
+  
+    public void getfinalResult (){
+        DisplayLabel.text = SpeechRecognitionClient.finalPhrase;
+    }
     /// <summary>
     /// RecoServiceClient_OnMessageReceived event handler:
     /// This event handler gets fired every time a new message comes back via WebSocket.
@@ -556,10 +560,10 @@ public class SpeechManager : MonoBehaviour {
         Debug.Log("Microphone recording has started.");
         UpdateUICanvasLabel("Microphone is live, start talking now... press STOP when done.", FontStyle.Normal);
     }
-    public void setTheText()
-    {
-        resultText.text = recoServiceClient.finalPhrase;
-    }
+    // public void setTheText()
+    // {
+    //     resultText.text = recoServiceClient.finalPhrase;
+    // }
     /// <summary>
     /// Stops the microphone recording and saves to a WAV file. Used to validate WAV format.
     /// </summary>
@@ -582,8 +586,8 @@ public class SpeechManager : MonoBehaviour {
             Debug.Log($"Microphone stopped recording at frequency {audiosource.clip.frequency}Hz.");
         });
         UpdateUICanvasLabel("Recording stopped. Audio saved to file 'recording.wav'.", FontStyle.Normal);
-        Debug.Log("recoServiceClient.finalPhrase" + recoServiceClient.finalPhrase);
-        DisplayLabel.text = recoServiceClient.finalPhrase;
+        //Debug.Log("recoServiceClient.finalPhrase" + recoServiceClient.finalPhrase);
+       // DisplayLabel.text = recoServiceClient.finalPhrase;
         
     }
 
@@ -624,8 +628,8 @@ public class SpeechManager : MonoBehaviour {
 
             wr.Dispose();
             fs.Dispose();
-            Debug.Log($"Completed writing {audiodata.Length} WAV data samples to file.");
-
+            Debug.Log($"Completed writing {audiodata.Length} WAV data samples to file. Sending file to be processed.");
+            StartSpeechRecognitionFromFile();
         }
         catch (Exception ex)
         {
