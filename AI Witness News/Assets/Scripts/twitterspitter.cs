@@ -12,6 +12,8 @@ public class twitterspitter : MonoBehaviour
     public string TwitterApiConsumerKey;
     public string TwitterApiConsumerSecret;
 
+    public Text tweetRecievingText;
+
     public WebAccessToken TwitterApiAccessToken;
 
     [Header("GetGlobalTrends")]
@@ -59,5 +61,9 @@ public class twitterspitter : MonoBehaviour
 
         SearchResults =                     await TwitterRestApiHelper.SearchForTweets("unity", this.TwitterApiAccessToken.access_token, 50);
     }
+    public void tweetObjectToText(int index){
+        tweetRecievingText.text = SearchResults[index].text;
+    }
+    //
 }
 
