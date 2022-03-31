@@ -101,8 +101,6 @@ public class SpeechManager : MonoBehaviour {
     /// </remarks>
     public event EventHandler SpeechEnded;
 
-    public Text resultText;
-
     private void Awake()
     {
         // Attempt to load API secret"s
@@ -110,30 +108,6 @@ public class SpeechManager : MonoBehaviour {
         Debug.Log("stringIwant: " +stringIwant);
         SecretHelper.LoadSecrets(this);
     }
-    public string textFromUserVoice = "";
-    public string locationString = "";
-    public string keywordString = "";
-
-    public void getfinalResult (string textFromUserVoice)
-    {
-        textFromUserVoice = SpeechRecognitionClient.finalPhrase;
-        DisplayLabel.text = textFromUserVoice;
-        extractGeoAndKeyword(textFromUserVoice);
-    }
-
-    public void extractGeoAndKeyword(string textFromUserVoice){
-        locationString = extractString(textFromUserVoice, "in");
-        keywordString = extractString(textFromUserVoice, "about");        
-    }
-
-
-    public string extractString(string fullString, string triggerWord){
-        string myString = fullString;
-        string toBeSearched = triggerWord;
-        string extractedString = myString.Substring(myString.IndexOf(toBeSearched) + toBeSearched.Length);
-        return extractedString;
-    }
-
     // Use this for initialization
     void Start () {
         // Make sure to comment the following line unless you're debugging
@@ -148,12 +122,46 @@ public class SpeechManager : MonoBehaviour {
 
         Debug.Log($"Initiating Cognitive Services Speech Recognition Service.");
         InitializeSpeechRecognitionService();
+        SpeechRecognitionClient.whenDone += getfinalResult;
+
+    }
+    private void OnDisable(){
+        SpeechRecognitionClient.whenDone -= getfinalResult;
+    }
+    public string textFromUserVoice = "";
+    public string locationString = "";
+    public string keywordString = "";
+
+
+    public void getfinalResult ()
+    {
+        Debug.Log("getfinalResult fired Off");
+        textFromUserVoice = SpeechRecognitionClient.finalPhrase;
+        DisplayLabel.text = textFromUserVoice;
+        extractGeoAndKeyword(textFromUserVoice);
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public void extractGeoAndKeyword(string textFromUserVoice){
+        locationString = Between(textFromUserVoice, "in", "feel");
+        keywordString = extractString(textFromUserVoice, "about");        
+    }
+
+
+    public string extractString(string fullString, string triggerWord){
+        string myString = fullString;
+        string toBeSearched = triggerWord;
+        string extractedString = myString.Substring(myString.IndexOf(toBeSearched) + toBeSearched.Length);
+        return extractedString;
+    }
+    public string Between(string STR , string FirstString, string LastString)
+    {       
+        string FinalString;     
+        int Pos1 = STR.IndexOf(FirstString) + FirstString.Length;
+        int Pos2 = STR.IndexOf(LastString);
+        FinalString = STR.Substring(Pos1, Pos2 - Pos1);
+        return FinalString;
+    }
+
 
     /// <summary>
     /// InitializeSpeechRecognitionService is used to authenticate the client app
@@ -379,6 +387,8 @@ public class SpeechManager : MonoBehaviour {
             yield return null;
         }
         Debug.Log($"Speech Recognition job completed.");
+        
+        
         
     }
   

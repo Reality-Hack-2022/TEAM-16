@@ -360,6 +360,10 @@ namespace SpeechRecognitionService
                             {
                                 RecognizedText = wssr.Result.DisplayText;
                             }
+                            if(wssr.Result.RecognitionStatus == "Success")
+                            {
+                                
+                            }
                             // Raise an event with the message we just received.
                             // We also keep the last message received in case the client app didn't subscribe to the event.
                             LastMessageReceived = wssr;
@@ -468,14 +472,21 @@ namespace SpeechRecognitionService
                     SpeechServiceResult wssr;
 
                     var resStr = Encoding.UTF8.GetString(buffer, 0, wsResult.Count);
+                    string code = resStr.ToString();
 
+                    if(code.Contains("Path:turn.end")){
+                        Debug.Log(" string contains Path:turn.end");
+                        whenFinished();
+                    }   
                     switch (wsResult.MessageType)
                     {
                         // Incoming text messages can be hypotheses about the words the service recognized or the final
                         // phrase, which is a recognition result that won't change.
                         case WebSocketMessageType.Text:
                             wssr = ParseWebSocketSpeechResult(resStr);
+                            
                             Debug.Log(resStr + Environment.NewLine + "*** Message End ***" + Environment.NewLine);
+                                Debug.Log("resStr is : ");
 
                             // Set the recognized text field in the client for future lookup, this can be stored
                             // in either the Text property (for hypotheses) or DisplayText (for final phrases).
@@ -485,21 +496,25 @@ namespace SpeechRecognitionService
                                     Debug.Log("i'm a stuff this in an array " + wssr.Result.Text);
                                     finalPhrase = wssr.Result.Text;
                                     Debug.Log("finalPhrase is :" + finalPhrase);
+                                 
                                 }
                             }
                                 //if (wssr.Path == SpeechServiceResult.SpeechMessagePaths.SpeechHypothesis)
                             //{
                             //    RecognizedText = wssr.Result.Text;
                             //}
-                            //else if (wssr.Path == SpeechServiceResult.SpeechMessagePaths.SpeechPhrase)
-                            //{
+                            //else 
+                            // if (wssr.Path == SpeechServiceResult.SpeechMessagePaths.SpeechPhrase)
+                            // {
+                                
                             //    RecognizedText = wssr.Result.DisplayText;
-                            //}
+                            // }
                             // Raise an event with the message we just received.
                             // We also keep the last message received in case the client app didn't subscribe to the event.
                             LastMessageReceived = wssr;
                             if (OnMessageReceived != null)
                             {
+                                
                                 OnMessageReceived?.Invoke(wssr);
 
                             }
@@ -725,6 +740,16 @@ namespace SpeechRecognitionService
         {
             return (UInt16)((value & 0xFFU) << 8 | (value & 0xFF00U) >> 8);
         }
+        
+        public delegate void GetText();
+        public static event GetText whenDone;
+        public void whenFinished(){
+            Debug.Log("whenFinished fired Off");
+            if(whenDone != null)
+                whenDone();
+        }
+
+
 
         SpeechServiceResult ParseWebSocketSpeechResult(string result)
         {
@@ -775,6 +800,7 @@ namespace SpeechRecognitionService
                                 if (line.Substring(0, 4).ToLower() == "path")
                                 {
                                     string pathStr = line.Substring(5).Trim().ToLower();
+                               
                                     switch (pathStr)
                                     {
                                         case "turn.start":
@@ -802,6 +828,7 @@ namespace SpeechRecognitionService
                                         default:
                                             break;
                                     }
+
                                 }
                                 break;
 
