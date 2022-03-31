@@ -105,8 +105,33 @@ public class SpeechManager : MonoBehaviour {
 
     private void Awake()
     {
-        // Attempt to load API secrets
+        // Attempt to load API secret"s
+        string stringIwant = extractString("hi there IP:127.0.0.1","IP:");
+        Debug.Log("stringIwant: " +stringIwant);
         SecretHelper.LoadSecrets(this);
+    }
+    public string textFromUserVoice = "";
+    public string locationString = "";
+    public string keywordString = "";
+
+    public void getfinalResult (string textFromUserVoice)
+    {
+        textFromUserVoice = SpeechRecognitionClient.finalPhrase;
+        DisplayLabel.text = textFromUserVoice;
+        extractGeoAndKeyword(textFromUserVoice);
+    }
+
+    public void extractGeoAndKeyword(string textFromUserVoice){
+        locationString = extractString(textFromUserVoice, "in");
+        keywordString = extractString(textFromUserVoice, "about");        
+    }
+
+
+    public string extractString(string fullString, string triggerWord){
+        string myString = fullString;
+        string toBeSearched = triggerWord;
+        string extractedString = myString.Substring(myString.IndexOf(toBeSearched) + toBeSearched.Length);
+        return extractedString;
     }
 
     // Use this for initialization
@@ -357,9 +382,9 @@ public class SpeechManager : MonoBehaviour {
         
     }
   
-    public void getfinalResult (){
-        DisplayLabel.text = SpeechRecognitionClient.finalPhrase;
-    }
+
+
+
     /// <summary>
     /// RecoServiceClient_OnMessageReceived event handler:
     /// This event handler gets fired every time a new message comes back via WebSocket.

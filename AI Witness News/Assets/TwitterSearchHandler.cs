@@ -29,7 +29,7 @@ public class TwitterSearchHandler : MonoBehaviour
     // 1 - The Consumer API Key you received from Twitter
     private string apiKey = "";
     // 2 - The Consumer Secret you received from Twitter
-    private string secret = "";
+    private string secret = "bdx";
 
     // 3 - The coroutine the will make the authorization request
     private IEnumerator MakeOAuthRequest(string apiKey, string apiSecret)
