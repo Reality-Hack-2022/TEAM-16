@@ -48,6 +48,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SpeechRecognitionService;
 using Microsoft.Unity;
+using UnityEngine.Events;
 
 public class SpeechManager : MonoBehaviour {
 
@@ -104,8 +105,33 @@ public class SpeechManager : MonoBehaviour {
 
     private void Awake()
     {
-        // Attempt to load API secrets
+        // Attempt to load API secret"s
+        string stringIwant = extractString("hi there IP:127.0.0.1","IP:");
+        Debug.Log("stringIwant: " +stringIwant);
         SecretHelper.LoadSecrets(this);
+    }
+    public string textFromUserVoice = "";
+    public string locationString = "";
+    public string keywordString = "";
+
+    public void getfinalResult (string textFromUserVoice)
+    {
+        textFromUserVoice = SpeechRecognitionClient.finalPhrase;
+        DisplayLabel.text = textFromUserVoice;
+        extractGeoAndKeyword(textFromUserVoice);
+    }
+
+    public void extractGeoAndKeyword(string textFromUserVoice){
+        locationString = extractString(textFromUserVoice, "in");
+        keywordString = extractString(textFromUserVoice, "about");        
+    }
+
+
+    public string extractString(string fullString, string triggerWord){
+        string myString = fullString;
+        string toBeSearched = triggerWord;
+        string extractedString = myString.Substring(myString.IndexOf(toBeSearched) + toBeSearched.Length);
+        return extractedString;
     }
 
     // Use this for initialization
@@ -353,8 +379,11 @@ public class SpeechManager : MonoBehaviour {
             yield return null;
         }
         Debug.Log($"Speech Recognition job completed.");
-        DisplayLabel.text = recoServiceClient.finalPhrase;
+        
     }
+  
+
+
 
     /// <summary>
     /// RecoServiceClient_OnMessageReceived event handler:
@@ -556,10 +585,10 @@ public class SpeechManager : MonoBehaviour {
         Debug.Log("Microphone recording has started.");
         UpdateUICanvasLabel("Microphone is live, start talking now... press STOP when done.", FontStyle.Normal);
     }
-    public void setTheText()
-    {
-        resultText.text = recoServiceClient.finalPhrase;
-    }
+    // public void setTheText()
+    // {
+    //     resultText.text = recoServiceClient.finalPhrase;
+    // }
     /// <summary>
     /// Stops the microphone recording and saves to a WAV file. Used to validate WAV format.
     /// </summary>
@@ -582,8 +611,8 @@ public class SpeechManager : MonoBehaviour {
             Debug.Log($"Microphone stopped recording at frequency {audiosource.clip.frequency}Hz.");
         });
         UpdateUICanvasLabel("Recording stopped. Audio saved to file 'recording.wav'.", FontStyle.Normal);
-        Debug.Log("recoServiceClient.finalPhrase" + recoServiceClient.finalPhrase);
-        DisplayLabel.text = recoServiceClient.finalPhrase;
+        //Debug.Log("recoServiceClient.finalPhrase" + recoServiceClient.finalPhrase);
+       // DisplayLabel.text = recoServiceClient.finalPhrase;
         
     }
 
@@ -624,8 +653,8 @@ public class SpeechManager : MonoBehaviour {
 
             wr.Dispose();
             fs.Dispose();
-            Debug.Log($"Completed writing {audiodata.Length} WAV data samples to file.");
-
+            Debug.Log($"Completed writing {audiodata.Length} WAV data samples to file. Sending file to be processed.");
+            StartSpeechRecognitionFromFile();
         }
         catch (Exception ex)
         {

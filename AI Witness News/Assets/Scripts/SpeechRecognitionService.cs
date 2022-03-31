@@ -62,7 +62,7 @@ namespace SpeechRecognitionService
         // Public Fields
         public string RecognizedText { get; set; }
 
-        public string finalPhrase;
+        public static string finalPhrase;
         public SpeechServiceResult LastMessageReceived { get; set; }
 #if WINDOWS_UWP
         public MessageWebSocket SpeechWebSocketClient { get; set; }
