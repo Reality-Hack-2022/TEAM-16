@@ -7,20 +7,21 @@ using UnitySentiment;
 public class SendTextToAnalyse : MonoBehaviour {
 
 	public SentimentAnalysis predictionObject ;
-	public InputField textToSend;
+	// public InputField textToSend;
 
-	public Image ChangeSentimentalColor;
-	public Color PositiveResponse;
-	public Color NegativeResponse;
-	public Color NeutralResponse;
+	// public Image ChangeSentimentalColor;
+	// public Color PositiveResponse;
+	// public Color NegativeResponse;
+	// public Color NeutralResponse;
 
-	public Text PositivePercent;
-	public Text NegativePercent;
-	public Text NeutralPercent;
+	// public Text PositivePercent;
+	// public Text NegativePercent;
+	// public Text NeutralPercent;
 
 	private bool responseFromThread = false;
 	private bool threadStarted = false;
 	private Vector3 SentimentAnalysisResponse;
+	public SpeechManager _speechManny;
 
 	void OnEnable() 
 	{
@@ -41,10 +42,10 @@ public class SendTextToAnalyse : MonoBehaviour {
 		SentimentAnalysis.OnErrorOccurs -= Errors;
 	}
 
-	public void SendPredictionText()
+	public void SendPredictionText(string textToAnalyze)
 	{
 		// Thread-safe computations
-		predictionObject.PredictSentimentText(textToSend.text);
+		predictionObject.PredictSentimentText(textToAnalyze);
 
 		if (!threadStarted)
 		{// Thread Started
@@ -76,27 +77,58 @@ public class SendTextToAnalyse : MonoBehaviour {
 
 	private void PrintAnalysis()
 	{
-		PositivePercent.text = SentimentAnalysisResponse.x + " % : Positive"; 
-		NegativePercent.text = SentimentAnalysisResponse.y + " % : Negative";
-		NeutralPercent.text = SentimentAnalysisResponse.z + " % : Neutral";
+		// PositivePercent.text = SentimentAnalysisResponse.x + " % : Positive"; 
+		// NegativePercent.text = SentimentAnalysisResponse.y + " % : Negative";
+		// NeutralPercent.text = SentimentAnalysisResponse.z + " % : Neutral";
 		
+		// if ( SentimentAnalysisResponse.x >  SentimentAnalysisResponse.y &&  SentimentAnalysisResponse.x >  SentimentAnalysisResponse.z)
+		// {
+		// 	ChangeSentimentalColor.color = PositiveResponse;
+		// }
+		// else if (SentimentAnalysisResponse.y >  SentimentAnalysisResponse.x &&  SentimentAnalysisResponse.y >  SentimentAnalysisResponse.z)
+		// {
+		// 	ChangeSentimentalColor.color = NegativeResponse;
+		// }
+		// else if (SentimentAnalysisResponse.z >  SentimentAnalysisResponse.x &&  SentimentAnalysisResponse.z >  SentimentAnalysisResponse.y)
+		// {
+		// 	ChangeSentimentalColor.color = NeutralResponse;
+		// }
+		ourCateredResponse();
+	}
+	public UIManagerr _uimanager;
+	public twitterspitter _twitterspitter;
+	public void ourCateredResponse(){
+		string keyword = _speechManny.keywordString;
+		string location = _speechManny.locationString;
+		string exampleTweet = _twitterspitter.exampleTweet;
+		string exampleTweetAuthor = _twitterspitter.exampleTweetAuthor;
 		if ( SentimentAnalysisResponse.x >  SentimentAnalysisResponse.y &&  SentimentAnalysisResponse.x >  SentimentAnalysisResponse.z)
 		{
-			ChangeSentimentalColor.color = PositiveResponse;
+			//ChangeSentimentalColor.color = PositiveResponse;
+			_uimanager.SpeechPlayback("Peaople in " + location + " feel positive about " + keyword + ". Recently, "+location+" local, " +exampleTweetAuthor+" tweeted , "+ exampleTweet);
 		}
 		else if (SentimentAnalysisResponse.y >  SentimentAnalysisResponse.x &&  SentimentAnalysisResponse.y >  SentimentAnalysisResponse.z)
 		{
-			ChangeSentimentalColor.color = NegativeResponse;
+			//ChangeSentimentalColor.color = NegativeResponse;
+			_uimanager.SpeechPlayback("Peaople in " + location + " feel negative about " + keyword + ". Recently, "+location+" local, " +exampleTweetAuthor+" tweeted , "+ exampleTweet);
 		}
 		else if (SentimentAnalysisResponse.z >  SentimentAnalysisResponse.x &&  SentimentAnalysisResponse.z >  SentimentAnalysisResponse.y)
 		{
-			ChangeSentimentalColor.color = NeutralResponse;
+			//ChangeSentimentalColor.color = NeutralResponse;
+			_uimanager.SpeechPlayback("Peaople in " + location + " feel nuetral about " + keyword + ". Recently, "+location+" local, " +exampleTweetAuthor+" tweeted , "+ exampleTweet);
 		}
-	}
 
+		
+	}
 	// Sentiment Analysis Thread
 	private void Errors(int errorCode, string errorMessage)
 	{
 		Debug.Log(errorMessage + "\nCode: " + errorCode);
 	}
+    // public Vector3[] sentimentSample;
+	// public int sentimentCounter = 0;
+    // public void sentimentAverager(Vector3 response){
+    //     sentimentSample[sentimentCounter] = response;
+	// 	sentimentCounter++;
+    // }	
 }

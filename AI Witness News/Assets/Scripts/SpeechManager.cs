@@ -49,11 +49,12 @@ using UnityEngine.UI;
 using SpeechRecognitionService;
 using Microsoft.Unity;
 using UnityEngine.Events;
+using SimpleJSON;
 
 public class SpeechManager : MonoBehaviour {
 
     // Public fields
-    public Text DisplayLabel;
+    //public Text DisplayLabel;
 
     public string[] cateredQuestions;
 
@@ -101,18 +102,10 @@ public class SpeechManager : MonoBehaviour {
     /// </remarks>
     public event EventHandler SpeechEnded;
 
-    private void Awake()
-    {
-        // Attempt to load API secret"s
-        string stringIwant = extractString("hi there IP:127.0.0.1","IP:");
-        Debug.Log("stringIwant: " +stringIwant);
-        SecretHelper.LoadSecrets(this);
-    }
     // Use this for initialization
     void Start () {
         // Make sure to comment the following line unless you're debugging
         //Debug.LogError("This message should make the console appear in Development Builds");
-
 
         audiosource = GetComponent<AudioSource>();
         Debug.Log($"Audio settings playback rate currently set to {AudioSettings.outputSampleRate}Hz");
@@ -131,19 +124,22 @@ public class SpeechManager : MonoBehaviour {
     public string textFromUserVoice = "";
     public string locationString = "";
     public string keywordString = "";
+    public string latitudeFromSearch;
+    public string longitudeFromSearch;
 
-
+    //http://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=true_or_false
     public void getfinalResult ()
     {
         Debug.Log("getfinalResult fired Off");
         textFromUserVoice = SpeechRecognitionClient.finalPhrase;
-        DisplayLabel.text = textFromUserVoice;
+       // DisplayLabel.text = textFromUserVoice;
         extractGeoAndKeyword(textFromUserVoice);
     }
 
     public void extractGeoAndKeyword(string textFromUserVoice){
         locationString = Between(textFromUserVoice, "in", "feel");
-        keywordString = extractString(textFromUserVoice, "about");        
+        keywordString = extractString(textFromUserVoice, "about"); 
+       StartCoroutine( getAddy(locationString) );
     }
 
 
@@ -162,7 +158,27 @@ public class SpeechManager : MonoBehaviour {
         return FinalString;
     }
 
+  
+    IEnumerator getAddy(string searchedLocation)
+    {
+        string url = "https://maps.googleapis.com/maps/api/geocode/json?address="+searchedLocation+"&oe=utf-8&key=AIzaSyCB_pXcfl54bUnY15RUpnGzXvhndOjW1Ss";
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+            if (!string.IsNullOrEmpty(www.error)){
+                print(www.error);
+            } else {
+                var N = JSON.Parse(www.text);       
 
+                latitudeFromSearch = (string)N["results"][0]["geometry"]["location"]["lat"];
+                longitudeFromSearch = (string)N["results"][0]["geometry"]["location"]["lng"];
+                _twitterspitter.searchByGeo(latitudeFromSearch, longitudeFromSearch, keywordString);
+                Debug.Log("latitudeFromSearch : " + latitudeFromSearch);
+                Debug.Log("longitudeFromSearch : " + longitudeFromSearch);
+            }
+
+        }
+    }
     /// <summary>
     /// InitializeSpeechRecognitionService is used to authenticate the client app
     /// with the Speech API Cognitive Services. A subscription key is passed to 
@@ -436,8 +452,8 @@ public class SpeechManager : MonoBehaviour {
     {
         UnityDispatcher.InvokeOnAppThread(() =>
         {
-            DisplayLabel.text = text;
-            DisplayLabel.fontStyle = style;
+            //DisplayLabel.text = text;
+            //DisplayLabel.fontStyle = style;
         });
     }
 
@@ -674,4 +690,54 @@ public class SpeechManager : MonoBehaviour {
             UpdateUICanvasLabel(msg, FontStyle.Normal);
         }
     }
+    #region Instance
+    // private static SpeechManager m_Instance = null;
+    // public static SpeechManager instance
+    // {
+    //     get
+    //     {
+    //         if (m_Instance == null)
+    //         {
+    //             m_Instance = (SpeechManager)FindObjectOfType(typeof(SpeechManager));
+    //         }
+    //         return m_Instance;
+    //     }
+    // }
+
+    // public static bool hasInstance
+    // {
+    //     get { return m_Instance != null; }
+    // }
+
+    // protected static void AssignMeAsInstance(SpeechManager _instance)
+    // {
+    //     m_Instance = _instance;
+    // }
+    // twitterspitter _twitterspitter;
+
+
+    // public void AssignControllers() {
+
+    //     if (_twitterspitter == null)
+    //         _twitterspitter = GameObject.Find("twitterspitter").GetComponent<twitterspitter>();        
+    // }    
+    public twitterspitter _twitterspitter;
+    public void Awake()
+    {
+        SecretHelper.LoadSecrets(this);
+
+     
+        // AssignControllers();
+        // if (hasInstance)
+        // {
+        //     //Destroy(this);
+        // }
+        // else
+        // {
+        //     AssignMeAsInstance(this);
+        //     //GameObject.DontDestroyOnLoad(this);
+        // }
+    }
+
+    #endregion    
 }

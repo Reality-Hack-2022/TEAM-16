@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HG_Adv_03
-  m_Shader: {fileID: 4800000, guid: 79aed62ebf633114bb3e8df1cea2425f, type: 3}
+  m_Shader: {fileID: 4800000, guid: f08db08ca462f724ba47fbcae2ddb8fb, type: 3}
   m_ShaderKeywords: _DIST_CHROM_ON _EMISSION _GLITCHCOLOR_ON _X_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0

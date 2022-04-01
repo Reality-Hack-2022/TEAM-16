@@ -57,6 +57,6 @@ public class Example : MonoBehaviour
         GetUserProfileByUserId =            await TwitterRestApiHelper.GetUserProfileByUserId("783214", this.TwitterApiAccessToken.access_token);
         GetUserProfileByUsername =          await TwitterRestApiHelper.GetUserProfileByUsername("Twitter", this.TwitterApiAccessToken.access_token);
 
-        SearchResults =                     await TwitterRestApiHelper.SearchForTweets("unity", this.TwitterApiAccessToken.access_token, 50);
+        //SearchResults =                     await TwitterRestApiHelper.SearchForTweets("unity", this.TwitterApiAccessToken.access_token, 50);
     }
 }

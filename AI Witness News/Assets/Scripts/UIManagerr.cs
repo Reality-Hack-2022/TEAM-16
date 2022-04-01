@@ -9,45 +9,46 @@ using System.Threading.Tasks;
 public class UIManagerr : MonoBehaviour {
 
     public SpeechManagerr speech;
-    public InputField input;
-    public InputField pitch;
-    public Toggle useSDK;
-    public Dropdown voicelist;
-    public GameObject shape;
+    // public InputField input;
+    // public InputField pitch;
+    public bool useSDK = true;
+    // public Dropdown voicelist;
+    // public GameObject shape;
     public twitterspitter _twitterspitter;
 
     private void Start()
     {
-        pitch.text = "0";
+        // pitch.text = "0";
 
-        List<string> voices = new List<string>();
-        foreach (VoiceName voice in Enum.GetValues(typeof(VoiceName)))
-        {
-            voices.Add(voice.ToString());
-        }
-        voicelist.AddOptions(voices);
-        voicelist.value = (int)VoiceName.enUSGuyNeural;
+        // List<string> voices = new List<string>();
+        // foreach (VoiceName voice in Enum.GetValues(typeof(VoiceName)))
+        // {
+        //     voices.Add(voice.ToString());
+        // }
+        // voicelist.AddOptions(voices);
+        // voicelist.value = (int)VoiceName.enUSGuyNeural;
     }
 
     // The spinning cube is only used to verify that speech synthesis doesn't introduce
     // game loop blocking code.
     public void Update()
     {
-        if (shape != null)
-            shape.transform.Rotate(Vector3.up, 1);
+        // if (shape != null)
+        //     shape.transform.Rotate(Vector3.up, 1);
     }
 
     /// <summary>
     /// Speech synthesis can be called via REST API or Speech Service SDK plugin for Unity
     /// </summary>
-    public async void SpeechPlayback()
+    public async void SpeechPlayback(string textToParrot)
     {
         if (speech.isReady)
         {
-            string msg = input.text;
-            speech.voiceName = (VoiceName)voicelist.value;
-            speech.VoicePitch = int.Parse(pitch.text);
-            if (useSDK.isOn)
+            // string msg = input.text;
+            string msg = textToParrot;
+            speech.voiceName = VoiceName.enUSGuyNeural;
+            speech.VoicePitch = -5;
+            if (useSDK)
             {
                 // Required to insure non-blocking code in the main Unity UI thread.
                 await Task.Run(() => speech.SpeakWithSDKPlugin(msg));
@@ -65,6 +66,6 @@ public class UIManagerr : MonoBehaviour {
 
     public void ClearText()
     {
-        input.text = "";
+        //input.text = "";
     }
 }

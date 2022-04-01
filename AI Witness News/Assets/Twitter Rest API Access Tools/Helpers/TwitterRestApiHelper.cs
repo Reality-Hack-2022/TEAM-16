@@ -8,6 +8,7 @@ namespace Web.Twitter.API
 {
     public class TwitterRestApiHelper : MonoBehaviour
     {
+    
         //https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show.html
         public async static Task<UserProfile> GetUserProfileByUsername(string username, string AccessToken)
         {
@@ -68,7 +69,7 @@ namespace Web.Twitter.API
         }
 
         //https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
-        public async static Task<Tweet[]> SearchForTweets(string searchQuery,
+        public async static Task<Tweet[]> SearchForTweets(string searchQuery, string geoString,
             string accessToken,
             int? maxTweetsToReturn = null,
             string language = null,                //https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -77,11 +78,12 @@ namespace Web.Twitter.API
             long? minimumTweetId = null)            //For retriveing tweets with ids greater than the value given here
         {
             string url = "https://api.twitter.com/1.1/search/tweets.json?q=" + searchQuery;
-
+            url += geoString;
             if (maxTweetsToReturn != null)      url += "&count=" + maxTweetsToReturn;
             if (language != null)               url += "&lang=" + language;
             if (tweetTimeStampCutoff != null)   url += "&until=" + tweetTimeStampCutoff.Value.Year + tweetTimeStampCutoff.Value.Month + tweetTimeStampCutoff.Value.Day;
             if (minimumTweetId != null)         url += "&since_id" + minimumTweetId;
+            
 
             url += "result_type=" + searchType.ToString();
             url += "&include_entites=true";
@@ -89,6 +91,7 @@ namespace Web.Twitter.API
             string webResponse = await WebHelper.HttpRequestAsync(url, accessToken);
 
             SearchResults searchResults = JsonUtility.FromJson<SearchResults>(webResponse);
+            Debug.Log("Final url for call is " + url);
             return searchResults.statuses;
         }
 
