@@ -86,6 +86,7 @@ public class twitterspitter : MonoBehaviour
         Debug.Log("SearchResults.Length: " + SearchResults.Length);
         string fullString = "";
         exampleTweet = RemoveAllUrls(SearchResults[0].text);
+        //exampleTweet = SearchResults[0].text;
         exampleTweetAuthor = SearchResults[0].user.screen_name;
         for (int i = 0; i < SearchResults.Length; i++)
         {
@@ -95,23 +96,26 @@ public class twitterspitter : MonoBehaviour
         //tweetRecievingText.text = "Analyzing: " + fullString;
         _SendTextToAnalyse.SendPredictionText(fullString);
     }
-    public string RemoveAllUrls(string str)
+    public static string RemoveAllUrls(string str)
     {
-        str = RemoveUrls(str, "http://");
-        str = RemoveUrls(str, "https://");
+        var protocols = new string[] { "http://", "https://", "ftp://" };
+ 
+        foreach(var protocol in protocols)
+        {
+            while (str.IndexOf(protocol, StringComparison.CurrentCultureIgnoreCase) != -1)
+            {
+                var startIndex = str.IndexOf(protocol);
+                var endIndex = str.IndexOf(" ", startIndex);
+ 
+                // Account for URLs that end the string.
+                var count = (endIndex != -1) ? endIndex - startIndex : str.Length - startIndex;
+ 
+                str = str.Remove(startIndex, count);
+            }
+        }
+ 
         return str;
     }
- 
-    private string RemoveUrls(string str, string protocol)
-    {
-        while (str.Contains(protocol))
-        {
-            var startIndex = str.IndexOf(protocol);
-            var endIndex = str.IndexOf(" ", startIndex);
-            str = str.Remove(startIndex, endIndex - startIndex);
-        }
-        return str;
-    }	
 	// Sentiment Analysis Thread
 	private void Errors(int errorCode, string errorMessage)
 	{

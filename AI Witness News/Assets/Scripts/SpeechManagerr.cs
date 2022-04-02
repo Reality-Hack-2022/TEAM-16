@@ -37,7 +37,7 @@ public class SpeechManagerr : MonoBehaviour {
     [Tooltip("The audio source where speech will be played.")]
     public AudioSource audioSource = null;
 
-    public VoiceName voiceName = VoiceName.enUSJessaRUS;
+    public VoiceName voiceName = VoiceName.enUSGuyNeural;
     public int VoicePitch = 0;
 
     // Access token used to make calls against the Cognitive Services Speech API

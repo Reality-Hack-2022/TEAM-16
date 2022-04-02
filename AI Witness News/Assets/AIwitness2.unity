@@ -4606,7 +4606,7 @@ MonoBehaviour:
   randomHoldDurationMax: 0.5
   configReady: 1
   warnOnNullRefs: 1
-  inspSalsaLinked: 0
+  inspSalsaLinked: 1
   inspStateFoldoutProcessing: 0
   inspStateFoldoutSettings: 0
   inspStateFoldoutEmotes: 0
@@ -7632,7 +7632,7 @@ MonoBehaviour:
   SpeechServiceAPIKey: 2bed4c7bce304f0e8bd2403c851b9b8a
   SpeechServiceRegion: eastus
   audioSource: {fileID: 865473088}
-  voiceName: 15
+  voiceName: 16
   VoicePitch: 0
   isReady: 0
 --- !u!1 &865968805
@@ -9598,7 +9598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430881526}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.07, y: 1.62, z: 4}
+  m_LocalPosition: {x: -0.07, y: 1.62, z: 4.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
