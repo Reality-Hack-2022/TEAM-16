@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AIwitness2.unity
+    guid: 9148aea50ba999245ad80eba37117d08
   m_configObjects: {}
