@@ -45,8 +45,9 @@ public class twitterspitter : MonoBehaviour
 
     private void Start()
     {
-        TwitterApiAccessToken = WebHelper.GetTwitterApiAccessToken(TwitterApiConsumerKey,TwitterApiConsumerSecret);
-        ExampleFunction();
+        if(TwitterApiAccessToken != null)
+           TwitterApiAccessToken = WebHelper.GetTwitterApiAccessToken(TwitterApiConsumerKey,TwitterApiConsumerSecret);
+        //ExampleFunction();
     }
 
 

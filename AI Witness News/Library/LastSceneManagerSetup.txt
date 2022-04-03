@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/AIwitness2.unity
+- path: Assets/Scenes/ARDK.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

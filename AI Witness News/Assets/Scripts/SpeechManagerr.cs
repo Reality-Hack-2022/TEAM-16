@@ -47,6 +47,16 @@ public class SpeechManagerr : MonoBehaviour {
     [HideInInspector]
     public bool isReady = false;
 
+    //////Kahlil
+    private bool micPermissionGranted = false;
+    #if PLATFORM_ANDROID || PLATFORM_IOS
+        // Required to manifest microphone permission, cf.
+        // https://docs.unity3d.com/Manual/android-manifest.html
+        private Microphone mic;
+    #endif
+    /////kahlil
+
+
     private void Awake()
     {
         // Attempt to load API secrets
@@ -69,8 +79,30 @@ public class SpeechManagerr : MonoBehaviour {
         // avoid blocking the main Unity thread.
         // Make sure you have successfully obtained a token before making any Text-to-Speech API calls.
         StartCoroutine(AuthenticateSpeechService(authenticating));
+///kahlil
+        #if PLATFORM_IOS
+                if (!Application.HasUserAuthorization(UserAuthorization.Microphone))
+                {
+                    Application.RequestUserAuthorization(UserAuthorization.Microphone);
+                }
+        #endif
+///kahlil  
     }
-
+     /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void FixedUpdate()
+    {
+        ///kahlil
+        #if PLATFORM_IOS
+        if (!micPermissionGranted && Application.HasUserAuthorization(UserAuthorization.Microphone))
+        {
+            micPermissionGranted = true;
+            Debug.Log("Click button to recognize speech");
+        }
+        #endif
+    ///kahlil  
+    }         
     /// <summary>
     /// CoRoutine that checks to see if the async authentication process has completed. Once it completes,
     /// retrieves the token that will be used for subsequent Cognitive Services Text-to-Speech API calls.

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AIwitness2.unity
-    guid: 9148aea50ba999245ad80eba37117d08
+    path: Assets/SpeechAndText/Sample/SampleSpeechToText.unity
+    guid: d9447599b4cad0245ac00fa552c354b6
+  - enabled: 0
+    path: Assets/Scenes/ARDK.unity
+    guid: 656909dd95a2143028cc1ba6455cd584
   m_configObjects: {}
