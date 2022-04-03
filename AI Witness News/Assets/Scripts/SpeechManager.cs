@@ -651,6 +651,7 @@ public class SpeechManager : MonoBehaviour {
     protected virtual void OnSpeechEnded()
 	{
 		Debug.Log("Speech Ended");
+        
 		if (SpeechEnded != null) { SpeechEnded(this, EventArgs.Empty); }
 	}
 
